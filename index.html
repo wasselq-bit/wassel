@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>وصّل — رسالتك بصوت لطيف</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Reem+Kufi:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#231942;--violet:#5e548e;--mist:#f3f1f8;--lilac:#e4dff0;--blush:#e8b4bc;
+    --ink-soft:#5c5670;--line:#d9d3e6;--wa:#1f8f50;--warn:#a8432a;
+    --r-lg:28px; --r-md:16px; --r-sm:10px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+  body{margin:0;font:400 17px/1.8 "IBM Plex Sans Arabic",system-ui,sans-serif;background:var(--mist);color:var(--night)}
+  a{color:var(--violet)}
+  :focus-visible{outline:3px solid var(--violet);outline-offset:3px;border-radius:6px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:"Reem Kufi",sans-serif;font-weight:600;line-height:1.35;margin:0}
+  .top{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+  .logo{font:700 30px "Reem Kufi",sans-serif;color:var(--night);text-decoration:none;display:flex;align-items:center;gap:10px}
+  .logo svg{width:30px;height:30px}
+  .top a.small{font-weight:600;text-decoration:none;color:var(--night);border:1.5px solid var(--night);padding:8px 18px;border-radius:999px;font-size:15px}
+  .top a.small:hover{background:var(--night);color:#fff}
+  .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding:40px 0 80px}
+  .hero h1{font-size:clamp(34px,5vw,56px);font-weight:700;letter-spacing:-.5px}
+  .hero p{font-size:19px;color:var(--ink-soft);max-width:30em;margin:20px 0 32px}
+  .cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--night);color:#fff;text-decoration:none;border:0;border-radius:999px;padding:16px 32px;font:600 17px "IBM Plex Sans Arabic",sans-serif;cursor:pointer}
+  .cta:hover{background:var(--violet)}
+  .trust{display:flex;gap:22px;flex-wrap:wrap;margin-top:28px;color:var(--ink-soft);font-size:15px}
+  .trust span{display:flex;align-items:center;gap:7px}
+  .trust svg{width:18px;height:18px;color:var(--violet)}
+  .phone{justify-self:center;width:300px;aspect-ratio:9/18;background:var(--night);border-radius:44px;padding:14px;box-shadow:0 30px 60px -20px rgba(35,25,66,.45)}
+  .screen{height:100%;border-radius:32px;background:linear-gradient(180deg,#3a2d63 0%,var(--night) 70%);color:#fff;display:flex;flex-direction:column;align-items:center;padding:56px 22px 30px;text-align:center}
+  .screen .who{font-size:14px;opacity:.7}
+  .screen .name{font:600 24px "Reem Kufi",sans-serif;margin:6px 0 4px}
+  .screen .sub{font-size:14px;opacity:.75}
+  .wave{display:flex;gap:5px;align-items:center;height:70px;margin:46px 0 auto}
+  .wave i{width:5px;border-radius:5px;background:var(--blush);animation:w 1.4s ease-in-out infinite}
+  .wave i:nth-child(odd){animation-delay:-.6s}
+  .wave i:nth-child(3n){animation-delay:-.3s}
+  @keyframes w{0%,100%{height:12px}50%{height:58px}}
+  .quote{font-size:15px;line-height:1.7;background:rgba(255,255,255,.08);border-radius:18px;padding:14px 16px;margin-bottom:26px}
+  .btns{display:flex;justify-content:space-around;width:100%}
+  .btns b{width:58px;height:58px;border-radius:50%;display:grid;place-items:center}
+  .btns b svg{width:26px;height:26px}
+  .no{background:#c94a4a}.yes{background:var(--wa)}
+  section.block{padding:72px 0;border-top:1px solid var(--line)}
+  .head{max-width:36em;margin-bottom:36px}
+  .head h2{font-size:clamp(26px,3.4vw,36px)}
+  .head p{color:var(--ink-soft);margin:10px 0 0}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;list-style:none;padding:0;margin:0}
+  .steps li{padding:0 0 0 24px;position:relative}
+  .steps .n{font:700 44px/1 "Reem Kufi",sans-serif;color:var(--blush);display:block;margin-bottom:14px}
+  .steps h3{font-size:20px;margin-bottom:6px}
+  .steps p{margin:0;color:var(--ink-soft);font-size:16px}
+  .trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .panel{border-radius:var(--r-lg);padding:32px}
+  .panel.dark{background:var(--night);color:#fff}
+  .panel.dark p,.panel.dark li{color:#d8d2ea}
+  .panel.light{background:var(--lilac)}
+  .panel h3{font-size:24px;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+  .panel h3 svg{width:26px;height:26px}
+  .panel ul{margin:0;padding:0;list-style:none}
+  .panel li{padding:10px 0;border-bottom:1px solid rgba(127,115,160,.25)}
+  .panel li:last-child{border:0}
+  .price{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:stretch}
+  .ticket{background:#fff;border:1.5px solid var(--night);border-radius:var(--r-lg);padding:32px;display:flex;flex-direction:column}
+  .ticket .amt{font:700 72px/1 "Reem Kufi",sans-serif}
+  .ticket .amt small{font-size:22px;font-weight:500;color:var(--ink-soft)}
+  .ticket ul{padding:0;list-style:none;margin:20px 0 0}
+  .ticket li{display:flex;gap:10px;padding:6px 0}
+  .ticket li svg{flex:0 0 20px;width:20px;color:var(--wa);margin-top:5px}
+  .side{background:var(--lilac);border-radius:var(--r-lg);padding:32px}
+  .side h3{font-size:20px;margin-bottom:8px}
+  .side p{margin:0 0 16px;color:var(--ink-soft)}
+  .flags{display:flex;flex-wrap:wrap;gap:8px}
+  .flags span{background:#fff;border-radius:999px;padding:6px 14px;font-size:15px}
+  .flags span.off{opacity:.45;text-decoration:line-through}
+  .order{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px}
+  .order aside p{color:var(--ink-soft)}
+  form{background:#fff;border-radius:var(--r-lg);padding:32px;border:1px solid var(--line)}
+  fieldset{border:0;padding:0;margin:0 0 26px}
+  legend{font:600 19px "Reem Kufi",sans-serif;margin-bottom:6px;padding:0}
+  label{display:block;font-weight:600;font-size:15px;margin:14px 0 6px}
+  label .opt{font-weight:400;color:var(--ink-soft)}
+  input,select,textarea{width:100%;font:16px "IBM Plex Sans Arabic",sans-serif;padding:13px 15px;border:1.5px solid var(--line);border-radius:var(--r-sm);background:var(--mist);color:var(--night)}
+  input:focus,select:focus,textarea:focus{outline:0;border-color:var(--violet);background:#fff}
+  textarea{min-height:150px;resize:vertical;line-height:1.8}
+  .row{display:grid;grid-template-columns:120px 1fr;gap:10px}
+  .row select{direction:ltr}
+  .counter{font-size:13px;color:var(--ink-soft);text-align:left;margin-top:4px}
+  .seg{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px}
+  .seg label{margin:0;font-weight:500;border:1.5px solid var(--line);border-radius:var(--r-sm);padding:12px 14px;display:flex;gap:10px;align-items:center;cursor:pointer;background:var(--mist)}
+  .seg label:has(input:checked){border-color:var(--violet);background:#fff;box-shadow:inset 0 0 0 1px var(--violet)}
+  .seg input{width:auto;accent-color:var(--violet)}
+  .check{display:flex;gap:12px;align-items:flex-start;font-weight:500;font-size:15px;margin:0}
+  .check input{width:20px;height:20px;margin-top:5px;accent-color:var(--violet)}
+  .err{color:var(--warn);font-weight:600;margin-top:16px;display:none}
+  .submit{width:100%;margin-top:22px}
+  .done{display:none;background:#fff;border-radius:var(--r-lg);padding:32px;border:1.5px solid var(--wa)}
+  .done h3{font-size:26px;color:var(--wa);margin-bottom:6px}
+  .pay{background:var(--mist);border-radius:var(--r-md);padding:16px 18px;margin:18px 0;line-height:2}
+  .cta.wa{background:var(--wa);width:100%}
+  .cta[aria-disabled="true"]{opacity:.4;pointer-events:none}
+  #ppBtns{margin-top:12px;min-height:50px}
+  .paid{display:none;background:#e7f5ec;border:1.5px solid var(--wa);border-radius:var(--r-md);padding:14px 18px;margin:0 0 16px;font-weight:600;color:var(--wa)}
+  .faq{max-width:760px}
+  .faq details{border-bottom:1px solid var(--line);padding:18px 0}
+  .faq summary{font-weight:600;font-size:18px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font:500 26px/1 "IBM Plex Sans Arabic";color:var(--violet);transition:transform .2s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq p{margin:10px 0 0;color:var(--ink-soft)}
+  footer{background:var(--night);color:#cfc8e3;padding:44px 0;margin-top:40px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:15px}
+  footer .logo{color:#fff;font-size:24px}
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr;gap:44px;padding-top:16px}
+    .phone{width:260px}
+    .steps{grid-template-columns:1fr 1fr;gap:34px 0}
+    .trust-grid,.price,.order{grid-template-columns:1fr}
+    .order{gap:24px}
+  }
+  @media (max-width:520px){
+    .steps{grid-template-columns:1fr}
+    .seg{grid-template-columns:1fr}
+    form,.ticket,.side,.panel,.done{padding:22px}
+    .ticket .amt{font-size:58px}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8.5 10.5V7.5a3.5 3.5 0 017 0v3"/></g></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0112 7.6 4.3 4.3 0 0119.5 10c0 5.4-7.5 10-7.5 10z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.6 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.6 3.6a1 1 0 01-.25 1z"/></symbol>
+</svg>
+
+<div class="wrap">
+  <div class="top">
+    <a class="logo" href="#">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#231942"/><path d="M9 17c2-4 4 4 6 0s4 4 6 0" fill="none" stroke="#e8b4bc" stroke-width="2.4" stroke-linecap="round"/></svg>
+      وصّل
+    </a>
+    <a class="small" href="#order">اطلب الحين</a>
+  </div>
+
+  <div class="hero">
+    <div>
+      <h1>في كلام ما قدرت تقوله لزوجتك أو زوجك؟ نوصله عنك بصوت لطيف.</h1>
+      <p>اكتب رسالتك، ونتصل عليه بمكالمة صوتية بالذكاء الاصطناعي تقرأ له كلامك. وإذا يبي يرد، نوصلك رده.</p>
+      <a class="cta" href="#order">اكتب رسالتك</a>
+      <div class="trust">
+        <span><svg><use href="#i-lock"/></svg>ما نسمع أصواتكم</span>
+        <span><svg><use href="#i-heart"/></svg>رسائل لطيفة بس</span>
+        <span><svg><use href="#i-check"/></svg>فلوسك ترجع إذا رفض</span>
+      </div>
+    </div>
+
+    <div class="phone" aria-hidden="true">
+      <div class="screen">
+        <div class="who">مكالمة واردة</div>
+        <div class="name">وصّل</div>
+        <div class="sub">رسالة من شخص يحبك</div>
+        <div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="quote">"آسف على اللي صار. وايد اشتقت لك…"</div>
+        <div class="btns">
+          <b class="no"><svg style="transform:rotate(135deg)"><use href="#i-phone"/></svg></b>
+          <b class="yes"><svg><use href="#i-phone"/></svg></b>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="block">
+  <div class="wrap">
+    <div class="head">
+      <h2>كيف توصل رسالتك</h2>
+      <p>أربع خطوات، وما نتصل على أحد إلا إذا وافق.</p>
+    </div>
+    <ol class="steps">
+      <li><span class="n">١</span><h3>تكتب الرسالة</h3><p>مع رقم المستلم، وتدفع رسوم الخدمة.</p></li>
+      <li><span class="n">٢</span><h3>نراجعها</h3><p>إذا فيها إساءة أو تهديد، نرفضها وترجع لك فلوسك.</p></li>
+      <li><span class="n">٣</span><h3>نستأذن المستلم</h3><p>نسأله على واتساب إذا يبي يسمعها، وما نذكر اسمك قبل ما يوافق.</p></li>
+      <li><span class="n">٤</span><h3>نتصل ونوصلها</h3><p>الذكاء الاصطناعي يقرأ كلامك، ونرسل لك رده إذا عنده رد.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="trust-grid">
+      <div class="panel dark">
+        <h3><svg><use href="#i-lock"/></svg>خصوصيتكم</h3>
+        <ul>
+          <li>المكالمة كلها بالذكاء الاصطناعي. ما في إنسان على الخط.</li>
+          <li>ما نسمع صوتك ولا صوت المستلم.</li>
+          <li>نشوف النص المكتوب بس: رسالتك عشان نراجعها، ورده مكتوب عشان نوصله لك.</li>
+          <li>ما نشارك رقمك ولا رسالتك مع أي أحد.</li>
+        </ul>
+      </div>
+      <div class="panel light">
+        <h3><svg><use href="#i-heart"/></svg>قواعدنا</h3>
+        <ul>
+          <li>نوصل رسائل الاعتذار والشوق والمصالحة.</li>
+          <li>ما نتصل على أحد إلا إذا وافق. وإذا قال "لا"، ما نتواصل معه مرة ثانية.</li>
+          <li>نحاول مرة وحدة بس مع كل رقم.</li>
+          <li>نرفض أي رسالة فيها تهديد أو إساءة أو ضغط.</li>
+          <li>المرسل وحده مسؤول عن الرسالة وعن علاقته بالمستلم.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="head"><h2>السعر</h2></div>
+    <div class="price">
+      <div class="ticket">
+        <div class="amt">٢ <small>د.ب للرسالة</small></div>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>مكالمة صوتية تقرأ رسالتك</li>
+          <li><svg><use href="#i-check"/></svg>نرسل لك رده مكتوب</li>
+          <li><svg><use href="#i-check"/></svg>فلوسك ترجع إذا المستلم رفض</li>
+        </ul>
+      </div>
+      <div class="side">
+        <h3>الدفع</h3>
+        <p>من البحرين: تحويل بنكي فوري+ بـ٢ د.ب.<br>من باقي الخليج: PayPal بـ٦ دولار، بالحساب أو بالبطاقة.</p>
+        <div class="flags">
+          <span>🇧🇭 البحرين</span><span>🇸🇦 السعودية</span><span>🇰🇼 الكويت</span>
+          <span>🇦🇪 الإمارات</span><span>🇶🇦 قطر</span><span class="off">🇴🇲 عُمان</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="order">
+  <div class="wrap order">
+    <aside>
+      <div class="head" style="margin-bottom:16px"><h2>اكتب رسالتك</h2></div>
+      <p>اكتب الكلام مثل ما تقوله له بالضبط. المكالمة بتقرأه بنفس كلماتك.</p>
+      <p>بعد ما تكمل الطلب، بنعطيك رقم الطلب وطريقة الدفع.</p>
+    </aside>
+
+    <div>
+      <form id="f" novalidate>
+        <fieldset>
+          <legend>بياناتك</legend>
+          <label for="sName">اسمك <span class="opt">(ما نقوله إلا إذا وافق المستلم)</span></label>
+          <input id="sName" maxlength="40" placeholder="مثال: أحمد" autocomplete="given-name">
+          <label for="sPhone">رقم واتسابك <span class="opt">(نرسل عليه رده)</span></label>
+          <div class="row">
+            <select id="sCode" aria-label="رمز الدولة"></select>
+            <input id="sPhone" inputmode="tel" placeholder="3xxxxxxx" autocomplete="tel-national">
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>المستلم</legend>
+          <label for="rName">اسمه <span class="opt">(زوجتك أو زوجك)</span></label>
+          <input id="rName" maxlength="40" placeholder="مثال: سارة">
+          <label for="rPhone">رقمه</label>
+          <div class="row">
+            <select id="rCode" aria-label="رمز الدولة"></select>
+            <input id="rPhone" inputmode="tel" placeholder="3xxxxxxx">
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>الرسالة</legend>
+          <textarea id="msg" maxlength="500" aria-label="الرسالة" placeholder="اكتب الكلام اللي تبيه يوصل…"></textarea>
+          <div class="counter"><span id="cnt">0</span> / 500</div>
+          <label>تبي نوصلك رده؟</label>
+          <div class="seg">
+            <label><input type="radio" name="reply" value="نعم" checked> اي، وصّلوني رده</label>
+            <label><input type="radio" name="reply" value="لا"> لا، وصّلوا الرسالة بس</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>الدفع</legend>
+          <div class="seg">
+            <label><input type="radio" name="pay" value="benefit" checked> تحويل بنكي (فوري+) — ٢ د.ب</label>
+            <label><input type="radio" name="pay" value="paypal"> PayPal — ٦ دولار</label>
+          </div>
+          <label for="code">كود خصم <span class="opt">(إذا عندك)</span></label>
+          <div class="row" style="grid-template-columns:1fr 110px">
+            <input id="code" dir="ltr" autocomplete="off" placeholder="مثال: ABC" style="text-transform:uppercase">
+            <button type="button" id="applyCode" class="cta" style="padding:10px 0;font-size:15px">طبّق</button>
+          </div>
+          <div id="codeMsg" style="font-size:15px;margin-top:6px"></div>
+        </fieldset>
+
+        <label class="check"><input type="checkbox" id="agree"> أوافق على القواعد وأتحمل مسؤولية رسالتي، وأعرف إنها ما توصل إلا إذا المستلم وافق.</label>
+
+        <div class="err" id="err" role="alert"></div>
+        <button class="cta submit" type="submit">أكمل الطلب</button>
+      </form>
+
+      <div class="done" id="done" tabindex="-1">
+        <h3>طلبك جاهز</h3>
+        <p style="margin:0">رقم الطلب: <b id="oid"></b></p>
+        <div class="pay" id="payBox"></div>
+        <div class="paid" id="paid" role="status"></div>
+        <p style="margin:0 0 16px" id="waHint">بعد ما تدفع، أرسل لنا الطلب على واتساب مع صورة التحويل.</p>
+        <a class="cta wa" id="waBtn" href="#" target="_blank" rel="noopener">أرسل الطلب على واتساب</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap faq">
+    <div class="head"><h2>أسئلة</h2></div>
+    <details><summary>بيعرف المستلم إنها مني؟</summary><p>ما نذكر اسمك إلا إذا وافق إنه يسمع الرسالة. وإذا ما تبي اسمك ينذكر أبد، خلّ خانة الاسم فاضية.</p></details>
+    <details><summary>إذا رفض يسمعها؟</summary><p>ترجع لك فلوسك، وما نتواصل معه مرة ثانية.</p></details>
+    <details><summary>الصوت صوت إنسان؟</summary><p>لا. الصوت ذكاء اصطناعي، واضح ولطيف، ويقرأ كلامك بنفس كلماتك.</p></details>
+    <details><summary>بتسمعون صوتي أو صوته؟</summary><p>لا. ما نسمع أصواتكم. الذكاء الاصطناعي هو اللي يكلمه، واحنا نشوف النص المكتوب بس عشان نوصلك رده.</p></details>
+    <details><summary>كم ياخذ وقت؟</summary><p>عادة خلال ٢٤ ساعة من ما نتأكد من الدفع.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="logo">وصّل</span>
+    <span>رسائل لطيفة بس. © <span id="yr"></span></span>
+  </div>
+</footer>
+
+<script>
+/* ====== عدّل هذي القيم ====== */
+const CONFIG = {
+  whatsapp: "15489000963",            // رقمك على واتساب (بدون + أو صفر)
+  iban: "BH93ABCO32700929101001",     // الآيبان
+  accountName: "اسمك في البنك",
+  paypal:   "wassel.qq@gmail.com",       // إيميل PayPal حقك
+  paypalMe: "",                        // اسمك في PayPal.me (يُستخدم إذا ما في Client ID)
+  // Client ID من PayPal Business (developer.paypal.com ← Apps & Credentials ← Live)
+  // إذا تركته فاضي، الموقع يرجع لرابط PayPal.me العادي
+  paypalClientId: "BAA6hyTI3lk8QHE8W1RxMz5_bTJW-wsjRGNqWsuwb46hWE3lb92Ys9cFCEcq71PMhtSf7wC1VNxTZvbXnc",
+  priceBHD: 2, priceUSD: 6,
+  codes: { "FEQ": { bhd: 0.5, usd: 1.3 } }
+};
+/* ============================ */
+
+const COUNTRIES = [
+  {c:"973", n:"🇧🇭 +973", len:[8]},
+  {c:"966", n:"🇸🇦 +966", len:[9]},
+  {c:"965", n:"🇰🇼 +965", len:[8]},
+  {c:"971", n:"🇦🇪 +971", len:[9]},
+  {c:"974", n:"🇶🇦 +974", len:[8]},
+];
+const $ = id => document.getElementById(id);
+for (const id of ["sCode","rCode"]) {
+  $(id).innerHTML = COUNTRIES.map(x=>`<option value="${x.c}">${x.n}</option>`).join("");
+}
+$("yr").textContent = new Date().getFullYear();
+$("msg").addEventListener("input", e => $("cnt").textContent = e.target.value.length);
+
+const BLOCK = ["اقتلك","بقتلك","اذبحك","بذبحك","افضحك","بفضحك","صورك","بنشر","انتحر","بنتحر","تهديد","بتشوف","بتندم","حقير","كلب","زبالة","وسخ","ابتزاز"];
+
+function digits(s){
+  const ar="٠١٢٣٤٥٦٧٨٩";
+  return s.replace(/[٠-٩]/g,d=>ar.indexOf(d)).replace(/\D/g,"").replace(/^0+/,"");
+}
+function validPhone(code, num){
+  const cc = COUNTRIES.find(x=>x.c===code);
+  return cc && cc.len.includes(num.length);
+}
+let discount = null, discountCode = "";
+function fmt(n){ return Number.isInteger(n) ? String(n) : n.toFixed(2).replace(/0$/,""); }
+function priceBHD(){ return CONFIG.priceBHD - (discount ? discount.bhd : 0); }
+function priceUSD(){ return +(CONFIG.priceUSD - (discount ? discount.usd : 0)).toFixed(2); }
+$("applyCode").addEventListener("click", () => {
+  const c = $("code").value.trim().toUpperCase(), m = $("codeMsg");
+  if (!c) { discount = null; discountCode = ""; m.textContent = ""; return; }
+  if (CONFIG.codes[c]) {
+    discount = CONFIG.codes[c]; discountCode = c;
+    m.style.color = "var(--wa)";
+    m.textContent = `تم الخصم ✓ السعر صار ${fmt(priceBHD())} د.ب تحويل بنكي، أو $${fmt(priceUSD())} PayPal.`;
+  } else {
+    discount = null; discountCode = "";
+    m.style.color = "var(--warn)";
+    m.textContent = "الكود غلط أو منتهي. تأكد منه وجرب مرة ثانية.";
+  }
+});
+function showErr(t){ const e=$("err"); e.textContent=t; e.style.display="block"; }
+function esc(s){ return s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+
+// يحمّل زر PayPal مرة وحدة
+function loadPayPal(){
+  return new Promise((ok, fail) => {
+    if (window.paypal) return ok();
+    const s = document.createElement("script");
+    s.src = `https://www.paypal.com/sdk/js?client-id=${encodeURIComponent(CONFIG.paypalClientId)}&currency=USD&intent=capture`;
+    s.onload = ok; s.onerror = fail;
+    document.head.appendChild(s);
+  });
+}
+
+let order = null;   // بيانات الطلب الحالي
+
+function waText(status){
+  const o = order;
+  return `${status}
+طلب — ${o.oid}
+المرسل: ${o.sName || "بدون اسم"}
+واتساب المرسل: +${o.sPhone}
+المستلم: ${o.rName}
+رقم المستلم: +${o.rPhone}
+يبي الرد: ${o.reply}
+الدفع: ${o.pay === "benefit" ? "تحويل بنكي" : "PayPal"}
+المبلغ: ${o.amount}${discountCode ? " (كود " + discountCode + ")" : ""}
+
+الرسالة:
+${o.msg}`;
+}
+function setWA(status){
+  $("waBtn").href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(waText(status))}`;
+}
+
+$("f").addEventListener("submit", ev => {
+  ev.preventDefault();
+  $("err").style.display="none";
+  const sPhone = digits($("sPhone").value), rPhone = digits($("rPhone").value);
+  const msg = $("msg").value.trim(), rName = $("rName").value.trim();
+  if (!validPhone($("sCode").value, sPhone)) return showErr("رقمك ناقص أو فيه غلط. تأكد من عدد الأرقام.");
+  if (!rName) return showErr("اكتب اسم المستلم.");
+  if (!validPhone($("rCode").value, rPhone)) return showErr("رقم المستلم ناقص أو فيه غلط. تأكد من عدد الأرقام.");
+  if ($("sCode").value+sPhone === $("rCode").value+rPhone) return showErr("رقم المستلم نفس رقمك. اكتب رقم المستلم.");
+  if (msg.length < 10) return showErr("الرسالة قصيرة. اكتب ١٠ أحرف على الأقل.");
+  if (BLOCK.some(w => msg.includes(w))) return showErr("الرسالة فيها كلام ما نوصله. عدّلها وخلها لطيفة.");
+  if (!$("agree").checked) return showErr("لازم توافق على القواعد عشان تكمل.");
+
+  const oid = "W" + Date.now().toString(36).toUpperCase().slice(-6);
+  const pay = document.querySelector('input[name="pay"]:checked').value;
+  order = {
+    oid, pay, msg, rName,
+    sName: $("sName").value.trim(),
+    sPhone: $("sCode").value + sPhone,
+    rPhone: $("rCode").value + rPhone,
+    reply: document.querySelector('input[name="reply"]:checked').value,
+    amount: pay === "benefit" ? fmt(priceBHD()) + " د.ب" : "$" + fmt(priceUSD())
+  };
+  $("oid").textContent = oid;
+  $("paid").style.display = "none";
+
+  if (pay === "benefit") {
+    $("payBox").innerHTML = `حوّل <b>${fmt(priceBHD())} د.ب</b> من تطبيق بنكك (فوري+) على الآيبان:<br><b dir="ltr" style="user-select:all">${esc(CONFIG.iban)}</b> <button type="button" id="cpIban" style="font:600 14px 'IBM Plex Sans Arabic';border:1.5px solid var(--violet);background:#fff;color:var(--violet);border-radius:999px;padding:2px 12px;cursor:pointer">انسخ</button><br>باسم: ${esc(CONFIG.accountName)}<br>⚠️ اكتب في ملاحظة التحويل رقم الطلب: <b>${oid}</b>`;
+    $("waHint").textContent = "بعد ما تحوّل، أرسل لنا الطلب على واتساب مع صورة التحويل.";
+    $("waBtn").removeAttribute("aria-disabled");
+    setWA("⏳ بانتظار التحويل البنكي");
+    $("cpIban").onclick = async e => { try { await navigator.clipboard.writeText(CONFIG.iban); e.target.textContent = "انتسخ ✓"; } catch { e.target.textContent = "انسخه يدوياً"; } };
+  } else if (CONFIG.paypalClientId) {
+    // دفع تلقائي داخل الموقع
+    $("payBox").innerHTML = `ادفع <b>$${fmt(priceUSD())}</b> بـ PayPal أو بالبطاقة:<div id="ppBtns"></div>`;
+    $("waHint").textContent = "زر الواتساب يشتغل بعد ما يتم الدفع.";
+    $("waBtn").setAttribute("aria-disabled","true");
+    $("waBtn").href = "#";
+    loadPayPal().then(() => {
+      paypal.Buttons({
+        style: { layout: "vertical", shape: "pill", label: "pay" },
+        createOrder: (d, actions) => actions.order.create({
+          purchase_units: [{
+            invoice_id: oid,
+            description: "وصّل — رسالة " + oid,
+            amount: { currency_code: "USD", value: priceUSD().toFixed(2) }
+          }]
+        }),
+        onApprove: (d, actions) => actions.order.capture().then(det => {
+          const cap = det.purchase_units?.[0]?.payments?.captures?.[0];
+          const txn = cap?.id || det.id;
+          if (det.status !== "COMPLETED") { $("payBox").insertAdjacentHTML("beforeend","<p style='color:var(--warn)'>الدفع ما اكتمل. جرّب مرة ثانية.</p>"); return; }
+          $("ppBtns").remove();
+          $("paid").style.display = "block";
+          $("paid").textContent = `✅ تم الدفع. رقم العملية: ${txn}`;
+          $("waHint").textContent = "آخر خطوة: اضغط الزر عشان يوصلنا طلبك.";
+          $("waBtn").removeAttribute("aria-disabled");
+          setWA(`✅ مدفوع عبر PayPal — رقم العملية: ${txn}`);
+          $("waBtn").focus();
+        }),
+        onError: () => $("payBox").insertAdjacentHTML("beforeend","<p style='color:var(--warn)'>صار خطأ في PayPal. جرّب مرة ثانية أو اختر التحويل البنكي.</p>")
+      }).render("#ppBtns");
+    }).catch(() => {
+      $("ppBtns").innerHTML = "<p style='color:var(--warn)'>ما قدرنا نحمّل PayPal. تأكد من الإنترنت وجرّب مرة ثانية.</p>";
+    });
+  } else {
+    // بدون Client ID: رابط PayPal.me العادي
+    $("payBox").innerHTML = `ادفع <b>$${fmt(priceUSD())}</b> عن طريق PayPal. المبلغ مكتوب جاهز.<br><a class="cta" style="margin:12px 0 4px;background:#0070ba" href="https://www.paypal.com/paypalme/${encodeURIComponent(CONFIG.paypalMe)}/${fmt(priceUSD())}USD" target="_blank" rel="noopener">ادفع بـ PayPal</a><br>اكتب في الملاحظة رقم الطلب: <b>${oid}</b>`;
+    $("waHint").textContent = "بعد ما تدفع، أرسل لنا الطلب على واتساب مع صورة الدفع.";
+    $("waBtn").removeAttribute("aria-disabled");
+    setWA("⏳ بانتظار دفع PayPal");
+  }
+
+  $("f").style.display = "none";
+  $("done").style.display = "block";
+  $("done").focus();
+  $("done").scrollIntoView({behavior:"smooth", block:"center"});
+});
+</script>
+</body>
+</html>
